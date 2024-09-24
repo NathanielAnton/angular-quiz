@@ -1,0 +1,10 @@
+<div class="search-bar">
+  <input [(ngModel)]="searchTerm" (input)="filterCategories()" placeholder="Rechercher une catégorie" />
+  <button (click)="resetFilter()">Réinitialiser</button>
+</div>
+
+<div class="category-container">
+  <div *ngFor="let category of filteredCategories" class="category-card" (click)="goToCategory(category.id)">
+    <h3>{{ category.name }}</h3>
+  </div>
+</div>
