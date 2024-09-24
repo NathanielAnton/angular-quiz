@@ -1,21 +1,75 @@
+/* Style de la barre de recherche */
 .search-bar {
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
 }
 
+.search-input {
+  padding: 10px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 16px;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.reset-btn {
+  margin-left: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.reset-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Wrapper pour centrer la catégorie */
+.category-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+/* Conteneur des cartes */
 .category-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
 
+/* Style des cartes de catégorie */
 .category-card {
-  background-color: #f8f9fa;
+  background-color: #f9f9f9;
   padding: 20px;
   margin: 10px;
-  border-radius: 8px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 200px;
 }
 
 .category-card:hover {
-  background-color: #e2e6ea;
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.category-card h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
 }

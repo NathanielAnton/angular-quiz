@@ -6,7 +6,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class QuizService {
   quizContent: any[] = [];
-  playerAnswers: {questionId: number; answer: string}[] = [];
+  playerAnswers: { questionId: number; answer: string }[] = [];
   score = 0;
   isQuizFinished = false;
   playerName: string = '';
@@ -35,17 +35,17 @@ export class QuizService {
       isAnswered.answer = answer;
       return;
     }
-    this.playerAnswers.push({questionId, answer});
+    this.playerAnswers.push({ questionId, answer });
   }
 
-  getQuizContent() {
-    this.http.get('http://localhost:3000/questions').subscribe((questions: any) => {
+  getQuizContent(categoryId: number) {
+    this.http.get(`http://localhost:3000/questions?categoryId=${categoryId}`).subscribe((questions: any) => {
       for (const question of questions) {
         this.http.get(`http://localhost:3000/answers?questionId=${question.id}`).subscribe((answers: any) => {
           this.quizContent.push({
-              id: question.id,
-              question: question.questionLabel,
-              answers
+            id: question.id,
+            question: question.questionLabel,
+            answers
           });
         });
       }
